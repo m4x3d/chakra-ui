@@ -62,7 +62,9 @@
     "discord": "ts-node scripts/discord.ts",
     "create:pkg": "ts-node scripts/plopfile.ts",
     "release": "changeset publish",
-    "notify:release": "yarn changelog:write && yarn discord && yarn changelog:commit"
+    "notify:release": "yarn changelog:write && yarn discord && yarn changelog:commit",
+    "browserComp:prepare": "yarn install --frozen-lockfile && yarn build",
+    "browserComp": "npx es-check es5 ./packages/**/dist/*.cjs.prod.js --verbose"
   },
   "resolutions": {
     "**/react": "17.0.2",
@@ -119,6 +121,7 @@
     "discord.js": "^12.5.3",
     "dotenv-cli": "4.1.0",
     "edit-json-file": "1.6.0",
+    "es-check": "^6.2.1",
     "eslint": "7.17.0",
     "eslint-config-airbnb-typescript": "12.0.0",
     "eslint-config-prettier": "7.1.0",
